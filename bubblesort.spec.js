@@ -12,4 +12,10 @@ describe('Bubble Sort', function(){
     expect( bubbleSort([16,8,2,5]) ).toEqual( [2,5,8,16] );
     expect(window.swap.calls.count()).toEqual(5);
   });
+
+  it('handles multiple elements', function(){
+    spyOn(window, 'swap').and.callThrough();
+    expect( bubbleSort([16,8,2,5,9]) ).toEqual( [2,5,8,9,16] );
+    expect(window.swap.calls.count()).toEqual(6);
+  });
 });
